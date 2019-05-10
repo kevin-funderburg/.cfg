@@ -1,0 +1,13 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Kevin Funderburg
+	email = ksfunderburg@icloud.com
+[core]
+	editor = vim
+	excludesfile = /Users/kevinfunderburg/.gitignore_global
+[color]
+	ui = true
