@@ -1,13 +1,7 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+ # Path to your oh-my-zsh installation.
 export ZSH="/Users/kevinfunderburg/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Thene
 ZSH_THEME="spaceship"
 
 # Enable command auto-correction.
@@ -21,14 +15,12 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
+#source $ZSH/custom/plugins/zsh-history-substring-search/zsh-syntax-highlighting.zsh
+#source $ZSH/custom/plugins/zsh-history-substring-search/.zsh-history-substring-search.zsh
+#bindkey '^[[A' history-substring-search-up
+#bindkey '^[[B' history-substring-search-down
+#bindkey -M vicmd 'k' history-substring-search-up
+#bindkey -M vicmd 'j' history-substring-search-down
 
 #
 # PLUGINS
@@ -46,18 +38,9 @@ plugins=(
   iterm2
 )
 
-# key bindings for the history-substring-search plugin
-# https://github.com/zsh-users/zsh-history-substring-search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up # vi mode
-bindkey -M vicmd 'j' history-substring-search-down # vi mode
-
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -67,10 +50,10 @@ else
 fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Got these from https://blog.callstack.io/supercharge-your-terminal-with-zsh-8b369d689770
 
@@ -85,13 +68,10 @@ fi
 
 zmodload -i zsh/complist
 
-
-
 # Save history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
-
 
 # Options
 setopt auto_cd # cd by typing directory name if it's not a command
@@ -106,11 +86,10 @@ setopt correct_all # autocorrect commands
 setopt interactive_comments # allow comments in interactive shells
 
 
+###------------------------
+#  aliases
+###------------------------
 
-
-##########################
-#       my aliases       #
-##########################
 # navigation
 alias h='history'
 

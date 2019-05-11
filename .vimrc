@@ -9,73 +9,75 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" let Vundle manage Vundle, d
 Plugin 'VundleVim/Vundle.vim'
-" """""""""""""""""""""""""""
+
+
+" 
 " Obtained these from
 " https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9
-" """""""""""""""""""""""""""
-" lightline - adds a color bar
-" https://github.com/itchyny/lightline.vim
-Plugin 'itchyny/lightline.vim'
-"Settings for lightline plugin
-set laststatus=2
-set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
-
-
+" 
+"
+" Editor Plugins
+"
+" Plugin 'editorconfig/editorconfig-vim'
 " Multi editor tool for defining base file handling
 " I'm going to wait on this one, still warming up
 " https://github.com/editorconfig/editorconfig-vim
-"Plugin 'editorconfig/editorconfig-vim'
+
 
 " Adds multiple cursors to editor
-" https://github.com/terryma/vim-multiple-cursors
-Plugin 'terryma/vim-multiple-cursors'
 " ctrl + n for start word key
+Plugin 'terryma/vim-multiple-cursors'
+
 " Surrounds text with delimiters
-" https://github.com/tpope/vim-surround
-Plugin 'tpope/vim-surround'
 " cs + delimiter to be replaced + delimiter replacing
-" Shows window in file structure
-" https://github.com/scrooloose/nerdtree
+Plugin 'tpope/vim-surround'
+
+" Shows window in file structure (ctrl+O)
 Plugin 'scrooloose/nerdtree'
-" mapped to ctrl+O
 map <C-o> :NERDTreeToggle<CR>
 
+" Adds gutter to view git changes
+Plugin 'airblade/vim-gitgutter'
+
 " Code analysis tool
-" https://github.com/w0rp/ale
 Plugin 'w0rp/ale'
 
-
-
-" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-"
-" Dash plugin - https://github.com/rizzatti/dash.vim#readme
+
+" Dash plugin
 Plugin 'rizzatti/dash.vim'
 
+"
+"
+" Themes
+"
+"
+Plugin 'rakr/vim-one'
+Plugin 'kaicataldo/material.vim'
 
-" All of your Plugins must be added before the following line
+" Material theme
+let g:material_theme_style = 'dark'
+let g:material_terminal_italics = 1
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='one'
+
+" lightline - adds a color bar
+Plugin 'itchyny/lightline.vim'
+set laststatus=2
+set noshowmode
+"let g:lightline = {'colorscheme': 'material_vim'}
+let g:lightline = {'colorscheme': 'one'}
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -89,54 +91,94 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" EDITOR SETTINGS
+"
+"
+"
 " 
 "
- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End plugin load
+
+
+"""""""""""""""""""""""""
+" EDITOR SETTINGS
+"
+""""""""""""""""""""""""
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set nobackup
-"Enable the mouse
-set mouse=a
-"Copy and paste fromto/from system clipboard
-set clipboard=unnamed
+set number
+set mouse=a "Enable the mouse
+set clipboard=unnamed  "Copy and paste fromto/from system clipboard
 
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" APPEARANCE SETTINGS
-" site: https://github.com/VundleVim/Vundle.vim
+
+""""""""""""""""""""""""
+" APPEARANCE SETTINGS"
 "
- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme darcula
+""""""""""""""""""""""""
+colorscheme one
+" colorscheme darcula
+" colorscheme material
 
-"Font
-set gfn=Fira\ Code\ 12
+set background=dark " for the dark version
+" set background=light " for the light version
+
+
+"
+" Enable True Colors
+"
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neoviZZm/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+
+"
+" Font
+"
+set gfn=Fira\ Code\ 14
 syntax on
 
-"Cursor appearance
-if &term =~ "xterm\\|rxvt"
-  " use a | cursor in insert mode
-  let &t_SI = "\<Esc>[5 q"
 
-  " use a rectangle cursor otherwise
-  let &t_EI = "\<Esc>[1 q"
-endif
+"
+" Cursor appearance
+" 
+"if &term =~ "xterm\\|rxvt"
+"    let &t_SI = "\<Esc>[5 q" " use a | cursor in insert mode
+"else
+"    let &t_EI = "\<Esc>[1 q" " use a rectangle cursor otherwise
+"endif
+let &t_SI = "\<Esc>[5 q"
+"let &t_SI = "\e[6 q"
+"let &t_EI = "\e[2 q"
+let &t_EI = "\<Esc>[1 q"
 
-"Restore cursor to | on exit so Terminal is normal
-autocmd VimLeave * let &t_me="\<Esc>[5 q"
+"" optional reset cursor on start:
+"augroup myCmds
+"au!
+"autocmd VimEnter * silent !echo -ne "\e[2 q"
+"augroup END
+
+"" Restore cursor to | on exit so Terminal is normal
+"autocmd VimLeave * let &t_me="\<Esc>[5 q"
+"
+"if v:progname =~? "evim"
+"    finish
+"endif
+"
 
 
 
-if v:progname =~? "evim"
-    finish
-endif
 
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
