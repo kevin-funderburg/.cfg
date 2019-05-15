@@ -48,6 +48,7 @@ Plugin 'w0rp/ale'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
@@ -96,36 +97,37 @@ filetype plugin indent on    " required
 "
 " 
 "
-" End plugin load
+"                        END PLUGIN LOAD
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EDITOR SETTINGS
 "
-""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set nobackup
-set number
+set number  "show line numbers
 set mouse=a "Enable the mouse
-set clipboard=unnamed  "Copy and paste fromto/from system clipboard
+set clipboard=unnamed  "Copy and paste from/to system clipboard
 
 
 
 
 
-""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE SETTINGS"
 "
-""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme one
 " colorscheme darcula
 " colorscheme material
 
-set background=dark " for the dark version
-" set background=light " for the light version
-
+set background=dark
 
 "
 " Enable True Colors
@@ -158,10 +160,8 @@ syntax on
 "else
 "    let &t_EI = "\<Esc>[1 q" " use a rectangle cursor otherwise
 "endif
-let &t_SI = "\<Esc>[5 q"
-"let &t_SI = "\e[6 q"
-"let &t_EI = "\e[2 q"
-let &t_EI = "\<Esc>[1 q"
+let &t_SI = "\<Esc>[5 q"    " use a | cursor in insert mode
+let &t_EI = "\<Esc>[1 q"    " use a rectangle cursor in normal mode
 
 "" optional reset cursor on start:
 "augroup myCmds
@@ -178,6 +178,7 @@ let &t_EI = "\<Esc>[1 q"
 "
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 " Get the defaults that most users want.
