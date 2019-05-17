@@ -32,9 +32,10 @@ plugins=(
   history-substring-search
   osx
   # brew
-  vi-mode
+  # vi-mode
   python
-  # bash
+  bash
+  colored-man-pages
   iterm2
 )
 

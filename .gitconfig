@@ -7,7 +7,8 @@
 	name = Kevin Funderburg
 	email = ksfunderburg@icloud.com
 [core]
-	editor = vim
+	editor = atom
+    #editor = vim
 	excludesfile = /Users/kevinfunderburg/.gitignore_global
 [color]
 	ui = true
