@@ -7,7 +7,6 @@ _______
 
 Files
 --------
-- Search, filter, execute or edit the built in system or user clippings.
 - Files stored:
    - .zshrc
    - .bashrc
