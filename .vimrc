@@ -155,7 +155,7 @@ syntax on
 "
 " Cursor appearance
 " 
-"if &term =~ "xterm\\|rxvt"
+"if & =~ "xterm\\|rxvt"
 "    let &t_SI = "\<Esc>[5 q" " use a | cursor in insert mode
 "else
 "    let &t_EI = "\<Esc>[1 q" " use a rectangle cursor otherwise

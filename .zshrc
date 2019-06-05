@@ -34,7 +34,7 @@ plugins=(
   # brew
   # vi-mode
   python
-  bash
+  # bash
   colored-man-pages
   iterm2
 )
