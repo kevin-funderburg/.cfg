@@ -1,8 +1,12 @@
- # Path to your oh-my-zsh installation.
+# Path to your oh-my-zsh installation.
 export ZSH="/Users/kevinfunderburg/.oh-my-zsh"
 
 # Thene
 ZSH_THEME="spaceship"
+
+# Set Spaceship ZSH as a prompt
+# autoload -U promptinit; promptinit
+# prompt spaceship
 
 # Enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -32,7 +36,7 @@ plugins=(
   history-substring-search
   osx
   # brew
-  # vi-mode
+  vi-mode
   python
   # bash
   colored-man-pages
@@ -55,6 +59,9 @@ export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Turn on colors for tree command
+# export TREE_COLORS=1
 
 # Got these from https://blog.callstack.io/supercharge-your-terminal-with-zsh-8b369d689770
 
@@ -95,8 +102,11 @@ setopt interactive_comments # allow comments in interactive shells
 alias h='history'
 
 # Path Shortcuts
-alias sch='cd ~/Dropbox/School'
-alias dsk='cd ~/Desktop/'
+alias cddr='cd ~/Dropbox/'
+alias cds='cd ~/Dropbox/School'
+alias cdd='cd ~/Desktop/'
+alias cdg='cd ~/github/'
+alias cda='cd ~/github/AppleScripts/'
 
 # git
 alias gpom='git push -u origin master'
@@ -115,5 +125,12 @@ alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
 alias srcz='source ~/.zshrc'
+
+alias v='vim'
+
+# tree
+alias t='tree -C -l'
+alias td='tree -C -d -l'
+alias tl='tree -C -l -L'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
